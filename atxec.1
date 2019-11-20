@@ -1,0 +1,68 @@
+.Dd November 20, 2019
+.Dt XE 1
+.Os
+.Sh NAME
+.Nm atxec
+.Nd run command expanding arguments from file or environment
+.Sh SYNOPSIS
+.Nm
+.Ar command\ ...
+.Sh DESCRIPTION
+The
+.Nm
+utility constructs and then executes command lines from specified arguments,
+expanding arguments like
+.Bl -bullet
+.It
+.Sq Ic @ Ns Ar file
+with the contents of
+.Ar file ;
+.It
+.Sq Ic @$ Ns Ar VAR
+with the contents of the environment variable
+.Ar VAR ;
+.It
+.Sq Ic @@ Ns Ar str
+with the string
+.Sq @ Ns Ar str
+.Pq for quoting .
+.El
+.Pp
+Files and environment variables are split at whitespace into
+.Em multiple
+arguments.
+You can use
+.Xr rc 1 Ns - Ns style
+quoting, i.e.
+everything between single quotes is escaped
+.Pq and regarded as a single argument ,
+and two single quotes in a row expand to a quoted single quote.
+.Pp
+Files can contain comments,
+text after
+.Sq Ic #
+is ignored
+.Po
+note:
+the
+.Sq Ic #
+must be preceded by beginning of line or whitespace.
+.Pc
+.Sh EXIT STATUS
+.Ex -std
+.Sh EXAMPLES
+TBD
+.Sh SEE ALSO
+.Xr execline 1
+.Sh AUTHORS
+.An Leah Neukirchen Aq Mt leah@vuxu.org
+.Sh LICENSE
+.Nm
+is in the public domain.
+.Pp
+To the extent possible under law,
+the creator of this work
+has waived all copyright and related or
+neighboring rights to this work.
+.Pp
+.Lk http://creativecommons.org/publicdomain/zero/1.0/

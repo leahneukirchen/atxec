@@ -1,0 +1,47 @@
+XE(1)                       General Commands Manual                      XE(1)
+
+NAME
+     atxec – run command expanding arguments from file or environment
+
+SYNOPSIS
+     atxec command ...
+
+DESCRIPTION
+     The atxec utility constructs and then executes command lines from
+     specified arguments, expanding arguments like
+
+     •   ‘@file’ with the contents of file;
+
+     •   ‘@$VAR’ with the contents of the environment variable VAR;
+
+     •   ‘@@str’ with the string ‘@str’ (for quoting).
+
+     Files and environment variables are split at whitespace into multiple
+     arguments.  You can use rc(1)-style quoting, i.e.  everything between
+     single quotes is escaped (and regarded as a single argument), and two
+     single quotes in a row expand to a quoted single quote.
+
+     Files can contain comments, text after ‘#’ is ignored (note: the ‘#’ must
+     be preceded by beginning of line or whitespace.)
+
+EXIT STATUS
+     The atxec utility exits 0 on success, and >0 if an error occurs.
+
+EXAMPLES
+     TBD
+
+SEE ALSO
+     execline(1)
+
+AUTHORS
+     Leah Neukirchen <leah@vuxu.org>
+
+LICENSE
+     atxec is in the public domain.
+
+     To the extent possible under law, the creator of this work has waived all
+     copyright and related or neighboring rights to this work.
+
+     http://creativecommons.org/publicdomain/zero/1.0/
+
+Void Linux                     November 20, 2019                    Void Linux
