@@ -49,7 +49,7 @@ arg_splice(char *s)
 	while (1) {
 		while (isspace(*s) || *s == '#')
 			if (*s == '#')  /* skip line comment */
-				while (*s != '\n')
+				while (*s && *s != '\n')
 					s++;
 			else
 				s++;
