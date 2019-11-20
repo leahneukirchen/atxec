@@ -102,15 +102,13 @@ file_splice(char *file)
 
 	fstat(fileno(f), &st);
 
-	s = malloc(st.st_size + 1);
+	s = calloc(1, st.st_size + 1);
 	if (!s) {
 		fclose(f);
 		return;
 	}
 	fread(s, 1, st.st_size, f);
 	fclose(f);
-
-	s[st.st_size] = 0;
 
 	arg_splice(s);
 
